@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/*    headers and paragraphs*/
+
+h1,.foter{
+    margin: 2rem 5rem;
+    text-align: center;
+    background-color: orange;
+}
+.foter p{
+    color: #000;
+}
+h2{
+    font-family: sans-serif;
+    padding-top: 1.5rem;
+    text-align: center;
+    color: darkorange;
+}
+p{
+    padding: 0 10%;
+    text-align: center;
+    color: deepskyblue;
+}
+hr{
+    width: 80%;
+    justify-content: center;
+}
+
+/*    main container*/
+
+.container{
+    color: white;
+    background-image: url("images/wall.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+/*    form attributes and elements*/
+
+form{
+    margin: 0 auto;
+}
+
+input,select{
+    font-size: large;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+/*    main columns*/
+
+.first-part{
+    display: grid;
+    grid: auto/auto auto;
+    margin:0 1rem 5vh;
+    padding: 1rem;
+}
+.second-part,.third-part{
+    display: grid;
+    grid: auto/auto auto auto;
+    margin:2rem 2rem;
+    padding: 1rem;
+}
+.third-part-subpart{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1rem;
+    visibility: hidden;
+}
+#Premium-Account:checked  + .third-part-subpart{
+    visibility: visible;
+}
+.fourth-part{
+    display: grid;
+    grid: auto/auto auto auto auto auto;
+    margin:2rem 2rem;
+    padding: 1rem;
+}
+
+/*     sub columns*/
+#textArea,#textArea2{
+    display: block;
+    float: right;
+    visibility: hidden;
+    margin: 0 0.5rem;
+    width: 20vw;
+    height: 5vh;
+    overflow: hidden;
+}
+#Otherr:checked + .textarea #textArea,
+#else:checked + .textarea #textArea2{
+    visibility: visible;
+}
+
+/*     submit button*/
+
+.submit-btn{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    margin-bottom: 10vh;
+}
+input[type=submit] {
+    background-color: violet;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .first-part, .second-part, .third-part, .fourth-part,.third-part-subpart{
+        grid: auto/auto;
+    }
+}

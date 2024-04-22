@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Prieskum hodnotenia série</title>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Hodnotenie najlepší seriál</h1>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <form action="https://iolab.sk/form2mail/form2mail.php" name="rating" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" value="Mohibullah-Sarfiraz" name="hidden_name">
+            <input type="hidden" value="adf64d405b364fe920fd5779ef1690fe" name="apikey">
+            <input type="hidden" value="xsarfiraz@stuba.sk" name="from">
+            <input type="hidden" value="feistu03@gmail.com" name="to">
+            <input type="hidden" value="Mohibullah-Sarfiraz" name="subject">
+            <input type="hidden" value="https://www.udemy.com/" name="redirectOk">
+            <input type="hidden" value="https://www.google.com/" name="redirectFalse">
+
+            <h2>Informácie o používateľovi</h2>
+            <div class="first-part">
+                <div>
+                    <label for="fname">Prve Meno :*</label><br>
+                    <input type="text" id="fname" name="prve Meno" placeholder="napr.Tom" required><br>
+                    <label for="age"> Vek:*</label><br>
+                    <input type="number" id="age" name="Vek"  onchange="return ageAndDateCheck()" placeholder="napr.18" required><br>
+                    <label for="email"> Email:*</label><br>
+                    <input onchange="validateEmail();" placeholder="abc..@xyz.com" type="email" id="email" name="email"
+                           pattern="^[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,4})*$"><br>
+                </div>
+                <div>
+                    <label for="Sname">priezvisko:*</label><br>
+                    <input type="text" id="Sname" name="priezvisko" placeholder="napr.cruise" required><br>
+                    <label for="DateOfBirth">Dátum narodenia:*</label><br>
+                    <input type="date" id="DateOfBirth" name="Date-Of-Birth" required><br>
+                    <label for="telphone">Telefónne číslo:</label><br>
+                    <input type="tel" id="telphone" name="Telefónne číslo" pattern="\d{3}\s\d{3}\s\d{3}" placeholder="napr.123 456 789"><br>
+                </div>
+            </div>
+            <hr>
+
+            <h2>Vyberte svoj obľúbeny seriál a obľúbenú postavu</h2>
+
+            <div class="second-part">
+                <div>
+                    <label for="firstBar">Jazyk :</label><br>
+                    <select name="Jazyk" id="firstBar" onchange="checkFirstAndSecond()">
+                        <option value="anglický">anglický</option>
+                        <option value="španielský">španielský</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="secondBar">seriál :</label><br>
+                    <select name="seriál" id="secondBar" onchange="checkSecondAndThird()">
+                        <option value="Hra o tróny">Hra o tróny</option>
+                        <option value="Vikingovia">Vikingovia</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="thirdBar">Charakter :</label><br>
+                    <select name="Charakter" id="thirdBar">
+                        <option value="Jon Snow">Jon Snow</option>
+                        <option value="Tyrion Lannister">Tyrion Lannister</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+
+            <h2>stránky alebo platformy, ktorú ste používali na sledovanie seriálov</h2>
+            <p>Ak máte akýkoľvek prémiový účet na akejkoľvek platforme alebo webovej stránke na sledovanie seriálov a filmov
+                poskytnite nám informácie o platforme, za ktorú platíte. pomáha nám to byť presnejšími v našom prieskume
+                a hodnotiť aj viac využívané platformy. Ak nesledujete ani nesledujete televíziu a nemáte účet, napíšte nám
+                v textovej oblasti popisu, ktorá vám bude poskytnutá kliknutím na možnosť „iné“.
+            </p>
+
+            <div class="third-part" id="thirdPart">
+                <div >
+                    <label for="Tv">Televízia:</label>
+                    <input type="radio" name="platform" id="Tv" value="Televízia">
+                </div>
+                <div>
+                    <label for="Premium-Account">Mám prémiový účet na :</label>
+                    <input type="radio" name="prémiový-účet" id="Premium-Account" value="prémiový-účet">
+                    <div class="third-part-subpart">
+                        <h2>Informácie o prémiovom účte</h2>
+                        <div>
+                            <label for="name">Názov platformy:</label><br>
+                            <input type="text" id="name" name="Názov platformy" placeholder="napr.Netflix" ><br>
+                        </div>
+                        <div>
+                            <label for="country"> krajina:</label><br>
+                            <input type="text" id="country" name="krajina" placeholder="napr.slovensko" ><br>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="Otherr">Iné</label>
+                    <input type="radio" name="platform" id="Otherr" value="Iné">
+                    <div class="textarea">
+                        <label for="textArea"></label><textarea name="description" id="textArea" placeholder="write here!"></textarea>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+            <h2>Čo si myslíte, že je najlepší čas na sledovanie seriálov</h2>
+            <p>môžete si vybrať jednu z poskytnutých možností na zlepšenie nášho prieskumu.
+                alebo sa s nami môžete podeliť o svoj názor kliknutím na iné tlačidlo ako
+                svoj názor budete môcť napísať do poľa s popisom</p>
+            <p><mark>Poznámka:</mark>ak chcete, môžete vybrať viacero možností.</p>
+
+            <div class="fourth-part">
+                <div>
+                    <label for="night">V noci</label>
+                    <input type="checkbox" name="Čas" id="night" value="V noci">
+                </div>
+
+                <div>
+                    <label for="day">počas dňa</label>
+                    <input type="checkbox" name="Čas" id="day" value="počas dňa">
+
+                </div>
+                <div>
+                    <label for="weekend">Cez víkend</label>
+                    <input type="checkbox" name="Čas" id="weekend" value="Cez víkend">
+
+                </div>
+                <div>
+                    <label for="else">Iné</label>
+                    <input type="checkbox" name="Iné" id="else" value="Iné">
+                    <div class="textarea">
+                        <label for="textArea2"></label><textarea name="popis" id="textArea2" placeholder="píšte sem!"></textarea>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="submit-btn">
+                <input type="submit" value="Odoslat">
+            </div>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</main>
+<footer>
+    <div class="foter">
+        <p>Autor stránky: Mohibullah Sarfiraz</p>
+    </div>
+</footer>
+</body>
+</html>
